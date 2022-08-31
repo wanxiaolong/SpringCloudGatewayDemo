@@ -15,6 +15,8 @@ import reactor.core.publisher.Mono;
  * 将所有GlobalFilter和Route上声明的特殊的GatewayFilter放入一个FilterChain，
  * 这些Filter会根据Ordered接口进行排序。
  * 因此这里需要实现Ordered接口，来控制这个Filter的执行顺序。
+ * 参看所有内置的GlobalFilter:
+ * https://cloud.spring.io/spring-cloud-gateway/reference/html/#global-filters
  */
 @Component
 public class CustomGlobalFilter implements GlobalFilter, Ordered {
