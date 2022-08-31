@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+          # id: just a meaningful unique string
+        - id: first-service
+          # uri: where the request will be forward to
+          uri: http://localhost:8081/
+          # predicates: on what condition will the gateway forward the request
+          predicates:
+              # for all the supported predicate types, please refer to:
+              # https://cloud.spring.io/spring-cloud-gateway/reference/html/#gateway-request-predicates-factories
+            - Path=/first/**
+          # filters: additional logic can be added to request or response
+          # note that the filter order is important. filters would be called by its state order.
+          filters:
+            - LoggingFilter
+            - AuthFilter
+        - id: second-service
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/second/**
+          filters:
+            - AuthFilter
+            - LoggingFilter
