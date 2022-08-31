@@ -5,18 +5,20 @@ spring:
   cloud:
     gateway:
       routes:
-          # id: just a meaningful unique string
+          # id: 只是一个有意义的，唯一的名字，用于和其他route区分
         - id: first-service
-          # uri: where the request will be forward to
+          # uri: 请求将要被转发到的地方
           uri: http://localhost:8081/
-          # predicates: on what condition will the gateway forward the request
+          # predicates: 在什么条件下会转发。gateway只有在条件满足的情况下才会转发请求
           predicates:
-              # for all the supported predicate types, please refer to:
+              # 参看所有支持的predicate类型:
               # https://cloud.spring.io/spring-cloud-gateway/reference/html/#gateway-request-predicates-factories
             - Path=/first/**
-          # filters: additional logic can be added to request or response
-          # note that the filter order is important. filters would be called by its state order.
+          # filters: 可以在filter中，对request/response进行额外的处理
+          # 注意：filter的执行顺序，就是声明的顺序
           filters:
+              # 参看所有内置的GatewayFilter:
+              # https://cloud.spring.io/spring-cloud-gateway/reference/html/#gatewayfilter-factories
             - LoggingFilter
             - AuthFilter
         - id: second-service
