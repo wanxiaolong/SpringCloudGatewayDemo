@@ -1,0 +1,40 @@
+<html>
+<header>
+<script>
+    function sendCorsGetRequest() {
+        const req = new XMLHttpRequest();
+        req.onload = function(){console.log(this.responseText);}
+        req.open('GET', 'http://localhost:8080/first/666');
+        req.setRequestHeader('Authorization', 'Bearer 666');
+        req.send();
+    }
+    function sendCorsPostRequest() {
+        const req = new XMLHttpRequest();
+        req.onload = function(){console.log(this.responseText);}
+        req.open('POST', 'http://localhost:8080/first/666');
+        req.setRequestHeader('Authorization', 'Bearer 666');
+        req.send();
+    }
+    function sendCorsPutRequest() {
+        const req = new XMLHttpRequest();
+        req.onload = function(){console.log(this.responseText);}
+        req.open('PUT', 'http://localhost:8080/first/666');
+        req.setRequestHeader('Authorization', 'Bearer 666');
+        req.send();
+    }
+    function sendCorsDeleteRequest() {
+        const req = new XMLHttpRequest();
+        req.onload = function(){console.log(this.responseText);}
+        req.open('DELETE', 'http://localhost:8080/first/666');
+        req.setRequestHeader('Authorization', 'Bearer 666');
+        req.send();
+    }
+</script>
+</header>
+<body>
+    <button onclick="sendCorsGetRequest()">Send Cors GET Request</button><br>
+    <button onclick="sendCorsPostRequest()">Send Cors POST Request</button><br>
+    <button onclick="sendCorsPutRequest()">Send Cors PUT Request</button><br>
+    <button onclick="sendCorsDeleteRequest()">Send Cors Delete Request</button><br>
+</body>
+</html>
