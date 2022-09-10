@@ -4,6 +4,17 @@ server:
 spring:
   cloud:
     gateway:
+#      globalcors:
+#        cors-configurations:
+#          '[/**]':
+#            allowedOrigins: "http://localhost:7070"
+#            allowedHeaders: "*"
+#            allowedMethods:
+#              - OPTIONS
+#              - GET
+#              - PUT
+#              - POST
+#              - DELETE
       routes:
           # id: 只是一个有意义的，唯一的名字，用于和其他route区分
         - id: first-service
