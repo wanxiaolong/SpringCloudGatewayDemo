@@ -1,7 +1,19 @@
 server:
   port: 8080
 
+#异步任务线程池配置
+async:
+  corePoolSize: 2
+  maxPoolSize: 10
+  queueSize: 1000
+
 spring:
+  #数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo
+    username: root
+    password: abc123_
   cloud:
     gateway:
 #      globalcors:
