@@ -101,7 +101,7 @@ public class LoggingFilter extends AbstractGatewayFilterFactory<LoggingFilter.Co
             //set current filter order before the NettyWriteResponseFilter, otherwise the
             //response data could be write to the client before our LoggingFilter and thus
             //the override methods could never been invoked.
-            //see:
+            //see: https://github.com/spring-cloud/spring-cloud-gateway/issues/1771
         }, NettyWriteResponseFilter.WRITE_RESPONSE_FILTER_ORDER - 1);
     }
 
