@@ -1,5 +1,6 @@
 package com.demo.first.controller;
 
+import com.demo.first.dto.Log;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -28,5 +29,10 @@ public class FirstController {
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") String id) {
         return "DELETE: " + id;
+    }
+
+    @GetMapping("/getLog")
+    public Log logObject() {
+        return new Log(1, "Log ID", "Log Message");
     }
 }
