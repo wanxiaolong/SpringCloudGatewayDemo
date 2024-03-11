@@ -2,4 +2,16 @@ spring:
   application:
     name: second-service
 server:
+  servlet:
+    context-path: /second-service
   port: 8082
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      group:
+        gateway:
+          include: ping
+          show-components: always
+          show-details: always

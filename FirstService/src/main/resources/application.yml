@@ -1,5 +1,18 @@
 spring:
   application:
     name: first-service
+
 server:
+  servlet:
+    context-path: /first-service
   port: 8081
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      group:
+        gateway:
+          include: ping
+          show-components: always
+          show-details: always
