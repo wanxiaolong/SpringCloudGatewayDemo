@@ -29,4 +29,9 @@ public class FirstController {
     public String delete(@PathVariable("id") String id) {
         return "DELETE: " + id;
     }
+
+    @GetMapping("/exception")
+    public String exception() {
+        throw new RuntimeException("Don't worry, this is expected Exception");
+    }
 }
